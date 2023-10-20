@@ -17,11 +17,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+          
+      - name: Verify Python and pip
+        run: |
+          python --version
+          pip --version
+
       - name: Install SafeOps CLI
         run: pip3 install safeops-cli --user -U
-
-      - name: Check SafeOps CLI
-        run: ls /bin
 
       - name: Trigger SafeOps Scan
         run: safeops start-scans -a $API_KEY
