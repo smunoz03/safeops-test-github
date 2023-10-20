@@ -9,7 +9,7 @@ jobs:
   safeops-scan:
     runs-on: ubuntu-latest
     container:
-      image: python:3.8
+      image: python:3.9-alpine
     env:
       API_KEY: ${{ secrets.SAFEOPS_API_KEY }}
 
