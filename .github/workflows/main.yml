@@ -9,7 +9,7 @@ jobs:
   safeops-scan:
     runs-on: ubuntu-latest
     container:
-      image: python:3.9-alpine
+      image: ubuntu:20.04
     env:
       API_KEY: ${{ secrets.SAFEOPS_API_KEY }}
 
@@ -20,8 +20,11 @@ jobs:
       - name: Install SafeOps CLI
         run: pip3 install safeops-cli --user -U
 
+      - name: Check SafeOps CLI
+        run: 
+
       - name: Trigger SafeOps Scan
-        run: /bin/safeops start-scans -a $API_KEY
+        run: safeops start-scans -a $API_KEY
 
       - name: Check SafeOps Results
-        run: /bin/safeops get-results -a $API_KEY
+        run: safeops get-results -a $API_KEY
