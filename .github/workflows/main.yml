@@ -21,7 +21,7 @@ jobs:
         run: pip3 install safeops-cli --user -U
 
       - name: Trigger SafeOps Scan
-        run: safeops start-scans -a $API_KEY
+        run: /bin/safeops start-scans -a $API_KEY
 
       - name: Check SafeOps Results
-        run: safeops get-results -a $API_KEY
+        run: /bin/safeops get-results -a $API_KEY
